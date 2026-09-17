@@ -1,0 +1,2 @@
+# Apsy's Tech
+**Apsy's Tech** is a gaming and technology website designed for PC enthusiasts, gamers, and anyone interested in computer hardware. Explore the latest gaming technology, learn about CPUs, GPUs, RAM, SSDs, motherboards, cooling, and other PC components.  The website also features a **PC Building Configurator** where users can create their own custom PC builds, compare components, estimate the total cost, and learn about hardware compatibility.  **Apsy's Tech — Build Better. Game Better. Know Your Tech.**

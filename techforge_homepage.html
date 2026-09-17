@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechForge | Gaming & PC Building</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0f17;
+            color: #f5f7fa;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: #111722;
+            border-bottom: 1px solid #252d3a;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .logo { font-size: 25px; font-weight: bold; }
+        .logo span { color: #00d9ff; }
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+        }
+        nav a:hover { color: #00d9ff; }
+        .hero {
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 7%;
+            background:
+                radial-gradient(circle at 80% 35%, #12344a 0, transparent 28%),
+                radial-gradient(circle at 20% 70%, #17233b 0, transparent 30%);
+        }
+        .hero-content { max-width: 750px; }
+        .tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid #00d9ff;
+            border-radius: 20px;
+            color: #00d9ff;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+        h1 { font-size: clamp(42px, 7vw, 78px); line-height: 1.02; }
+        h1 span { color: #00d9ff; }
+        .hero p {
+            margin-top: 22px;
+            color: #aeb9c8;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .buttons { margin-top: 32px; }
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .primary { background: #00d9ff; color: #071019; }
+        .secondary { border: 1px solid #445064; color: white; }
+        section { padding: 70px 7%; }
+        .section-title { text-align: center; margin-bottom: 38px; }
+        .section-title h2 { font-size: 36px; }
+        .section-title p { color: #9aa6b6; margin-top: 10px; }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #121925;
+            border: 1px solid #252e3d;
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #00d9ff; }
+        .icon { font-size: 34px; margin-bottom: 16px; }
+        .card h3 { margin-bottom: 10px; }
+        .card p { color: #9aa6b6; line-height: 1.5; }
+        .config {
+            background: #101722;
+            border-top: 1px solid #202a38;
+            border-bottom: 1px solid #202a38;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8b9c;
+            background: #080c12;
+        }
+        @media (max-width: 700px) {
+            nav { flex-direction: column; gap: 12px; }
+            nav a { margin: 0 8px; }
+            .hero { min-height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">TECH<span>FORGE</span></div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#gaming">Gaming</a>
+        <a href="#tech">Technology</a>
+        <a href="#pc">PC Builder</a>
+    </div>
+</nav>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="tag">🎮 GAMING • 💻 TECHNOLOGY • 🖥️ PC BUILDING</div>
+            <h1>Build. Play.<br><span>Upgrade.</span></h1>
+            <p>
+                Welcome to TechForge — a place to learn about gaming technology,
+                PC components, performance, and eventually build your own perfect PC.
+            </p>
+            <div class="buttons">
+                <a class="btn primary" href="#pc">Build Your PC</a>
+                <a class="btn secondary" href="#tech">Explore Technology</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gaming">
+        <div class="section-title">
+            <h2>🎮 Gaming</h2>
+            <p>Learn about games, performance and gaming hardware.</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🕹️</div>
+                <h3>Game Guides</h3>
+                <p>Information about popular PC games and their system requirements.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>Performance</h3>
+                <p>Explore FPS, resolution, graphics settings and hardware performance.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🏆</div>
+                <h3>Gaming Gear</h3>
+                <p>Learn about keyboards, mice, headphones, monitors and controllers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <div class="section-title">
+            <h2>⚙️ Technology</h2>
+            <p>Understand the components inside a modern PC.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="icon">🧠</div><h3>CPU</h3><p>Learn how processors work and compare CPU specifications.</p></div>
+            <div class="card"><div class="icon">🎨</div><h3>GPU</h3><p>Understand graphics cards, VRAM, ray tracing and upscaling.</p></div>
+            <div class="card"><div class="icon">💾</div><h3>RAM & Storage</h3><p>Compare RAM, SSDs, NVMe drives and storage technologies.</p></div>
+            <div class="card"><div class="icon">🔌</div><h3>Power & Cooling</h3><p>Learn about PSUs, CPU coolers, airflow and thermal management.</p></div>
+        </div>
+    </section>
+
+    <section class="config" id="pc">
+        <div class="section-title">
+            <h2>🛠️ PC Configurator</h2>
+            <p>Coming next: choose your components and create your own PC build.</p>
+        </div>
+        <a class="btn primary" href="#">PC BUILDER — COMING SOON</a>
+    </section>
+</main>
+
+<footer>
+    © 2026 TechForge • Gaming & PC Technology
+</footer>
+
+</body>
+</html>

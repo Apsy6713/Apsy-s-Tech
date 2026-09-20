@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Configurator | Apsy's Tech</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            padding: 25px 8%;
+            border-bottom: 1px solid #263247;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 32px;
+        }
+
+        header p {
+            color: #aab7ca;
+        }
+
+        nav {
+            background: #172033;
+            padding: 14px 8%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 45px 20px;
+            background: linear-gradient(135deg, #111827, #172554);
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .notice {
+            background: #172033;
+            border-left: 4px solid #38bdf8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            color: #cbd5e1;
+        }
+
+        .configurator {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .components, .summary {
+            background: #111827;
+            padding: 25px;
+            border: 1px solid #263247;
+            border-radius: 12px;
+        }
+
+        h3 {
+            color: #38bdf8;
+            margin-bottom: 18px;
+            font-size: 23px;
+        }
+
+        .part {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            background: #1e293b;
+            color: white;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        select:focus {
+            outline: 2px solid #38bdf8;
+        }
+
+        .summary p {
+            margin: 12px 0;
+            color: #cbd5e1;
+        }
+
+        .total {
+            font-size: 28px;
+            color: #4ade80;
+            font-weight: bold;
+            margin: 18px 0;
+            overflow-wrap: anywhere;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .build-btn {
+            background: #0284c7;
+            color: white;
+        }
+
+        .build-btn:hover {
+            background: #0369a1;
+        }
+
+        .reset-btn {
+            background: #334155;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #475569;
+        }
+
+        #build-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #172033;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111827;
+            color: #94a3b8;
+            margin-top: 45px;
+        }
+
+        @media (max-width: 750px) {
+            .configurator {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 27px;
+            }
+
+            header h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Apsy's Tech</h1>
+        <p>Gaming | Technology | PC Building</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gaming.html">Gaming</a>
+        <a href="components.html">Components</a>
+        <a href="configurator.html">Configurator</a>
+        <a href="tech.html">Tech</a>
+    </nav>
+
+    <section class="hero">
+        <h2>PC Configurator</h2>
+        <p>Select your components and create your dream PC build!</p>
+    </section>
+
+    <main>
+
+        <div class="notice">
+            <strong>Important:</strong> This is a beginner-friendly demo
+            configurator. Prices are example estimates in INR, not live
+            store prices. Component selections are not automatically
+            checked for compatibility.
+        </div>
+
+        <div class="configurator">
+
+            <section class="components">
+                <h3>Choose Your Components</h3>
+
+                <div class="part">
+                    <label for="cpu">Processor (CPU)</label>
+                    <select id="cpu">
+                        <option value="0">Select a CPU</option>
+                        <option value="12000">AMD Ryzen 5 5600 - ₹12,000</option>
+                        <option value="18000">AMD Ryzen 5 7600 - ₹18,000</option>
+                        <option value="22000">Intel Core i5-14400F - ₹22,000</option>
+                        <option value="32000">AMD Ryzen 7 7800X3D - ₹32,000</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="gpu">Graphics Card (GPU)</label>
+                    <select id="gpu">
+                        <option value="0">Select a GPU</option>
+                        <option value="25000">NVIDIA RTX 4060 - ₹25,000</option>
+                        <option value="35000">NVIDIA RTX 4060 Ti - ₹35,000</option>
+                        <option value="45000">NVIDIA RTX 4070 - ₹45,000</option>
+                        <option value="55000">AMD Radeon RX 7800 XT - ₹55,000</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="ram">Memory (RAM)</label>
+                    <select id="ram">
+                        <option value="0">Select RAM</option>
+                        <option value="2500">8GB DDR4 - ₹2,500</option>
+                        <option value="4500">16GB DDR4 - ₹4,500</option>
+                        <option value="6500">16GB DDR5 - ₹6,500</option>
+                        <option value="9500">32GB DDR5 - ₹9,500</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="storage">Storage (SSD)</label>
+                    <select id="storage">
+                        <option value="0">Select Storage</option>
+                        <option value="2500">500GB NVMe SSD - ₹2,500</option>
+                        <option value="4000">1TB NVMe SSD - ₹4,000</option>
+                        <option value="7500">2TB NVMe SSD - ₹7,500</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="motherboard">Motherboard</label>
+                    <select id="motherboard">
+                        <option value="0">Select a Motherboard</option>
+                        <option value="7000">Budget Motherboard - ₹7,000</option>
+                        <option value="12000">Mid-range Motherboard - ₹12,000</option>
+                        <option value="20000">Premium Motherboard - ₹20,000</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="psu">Power Supply (PSU)</label>
+                    <select id="psu">
+                        <option value="0">Select a PSU</option>
+                        <option value="4000">550W PSU - ₹4,000</option>
+                        <option value="6000">650W PSU - ₹6,000</option>
+                        <option value="8500">750W PSU - ₹8,500</option>
+                        <option value="12000">850W PSU - ₹12,000</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="case">PC Case</label>
+                    <select id="case">
+                        <option value="0">Select a Case</option>
+                        <option value="3000">Basic Cabinet - ₹3,000</option>
+                        <option value="5500">Airflow Gaming Case - ₹5,500</option>
+                        <option value="9000">Premium RGB Case - ₹9,000</option>
+                    </select>
+                </div>
+
+                <div class="part">
+                    <label for="cooler">CPU Cooler</label>
+                    <select id="cooler">
+                        <option value="0">Select a Cooler</option>
+                        <option value="0">Stock Cooler - ₹0</option>
+                        <option value="2500">Air Cooler - ₹2,500</option>
+                        <option value="7000">Liquid Cooler - ₹7,000</option>
+                    </select>
+                </div>
+            </section>
+
+            <aside class="summary">
+                <h3>Your Build Summary</h3>
+
+                <p>CPU: <span id="cpu-price">₹0</span></p>
+                <p>GPU: <span id="gpu-price">₹0</span></p>
+                <p>RAM: <span id="ram-price">₹0</span></p>
+                <p>Storage: <span id="storage-price">₹0</span></p>
+                <p>Motherboard: <span id="motherboard-price">₹0</span></p>
+                <p>PSU: <span id="psu-price">₹0</span></p>
+                <p>Case: <span id="case-price">₹0</span></p>
+                <p>Cooler: <span id="cooler-price">₹0</span></p>
+
+                <hr>
+
+                <p>Estimated Total</p>
+                <div class="total" id="total">₹0</div>
+
+                <button class="build-btn" onclick="showBuild()">
+                    Create My Build
+                </button>
+
+                <button class="reset-btn" onclick="resetBuild()">
+                    Reset Configuration
+                </button>
+
+                <div id="build-result" aria-live="polite">
+                    Your selected build will appear here.
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Apsy's Tech | PC Building and Technology</p>
+    </footer>
+
+    <script>
+        const parts = [
+            "cpu", "gpu", "ram", "storage",
+            "motherboard", "psu", "case", "cooler"
+        ];
+
+        function formatPrice(price) {
+            return "₹" + price.toLocaleString("en-IN");
+        }
+
+        function calculateTotal() {
+            let total = 0;
+
+            parts.forEach(function(part) {
+                const select = document.getElementById(part);
+                const price = Number(select.value);
+
+                total += price;
+
+                document.getElementById(part + "-price").textContent =
+                    formatPrice(price);
+            });
+
+            document.getElementById("total").textContent =
+                formatPrice(total);
+        }
+
+        function showBuild() {
+            calculateTotal();
+
+            let result = "<h3>🎮 Your PC Build</h3><ul>";
+
+            parts.forEach(function(part) {
+                const select = document.getElementById(part);
+                const selectedOption =
+                    select.options[select.selectedIndex];
+
+                if (Number(select.value) > 0) {
+                    result += "<li>" + selectedOption.text + "</li>";
+                } else if (part === "cooler" &&
+                           select.selectedIndex === 1) {
+                    result += "<li>" + selectedOption.text + "</li>";
+                } else {
+                    result += "<li>" + part.toUpperCase() +
+                              ": Not selected</li>";
+                }
+            });
+
+            result += "</ul><p><strong>Estimated Total: " +
+                      document.getElementById("total").textContent +
+                      "</strong></p>";
+
+            result += "<p>Check component compatibility before purchasing.</p>";
+
+            document.getElementById("build-result").innerHTML = result;
+        }
+
+        function resetBuild() {
+            parts.forEach(function(part) {
+                document.getElementById(part).selectedIndex = 0;
+            });
+
+            document.getElementById("build-result").textContent =
+                "Your selected build will appear here.";
+
+            calculateTotal();
+        }
+
+        parts.forEach(function(part) {
+            document.getElementById(part).addEventListener(
+                "change", calculateTotal
+            );
+        });
+
+        calculateTotal();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beyond the Ordinary | Apsy's Tech</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d18;
+            color: #e5e7eb;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 25px 8%;
+            background: #0e1728;
+            border-bottom: 1px solid #26364d;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 32px;
+        }
+
+        header p {
+            color: #a5b4c8;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            padding: 15px 8%;
+            background: #142036;
+        }
+
+        nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 420px;
+            padding: 90px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at top, #12365b 0%, transparent 65%),
+                linear-gradient(135deg, #080d18, #101d36);
+            border-bottom: 1px solid #26364d;
+        }
+
+        .eyebrow {
+            color: #38bdf8;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            color: #f8fafc;
+            font-size: clamp(32px, 5vw, 56px);
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .hero h2 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .hero .tagline {
+            margin-top: 28px;
+            color: #7dd3fc;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .intro {
+            padding: 30px;
+            margin-bottom: 35px;
+            background: #101a2c;
+            border: 1px solid #26364d;
+            border-radius: 14px;
+        }
+
+        .intro h3 {
+            color: #38bdf8;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .topic-heading {
+            color: #38bdf8;
+            font-size: 28px;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .topic-label {
+            color: #7dd3fc;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .tech-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: center;
+            padding: 28px;
+            margin-bottom: 28px;
+            background: #101a2c;
+            border: 1px solid #26364d;
+            border-radius: 14px;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+
+        .tech-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        .tech-card:nth-of-type(even) .topic-image {
+            order: 2;
+        }
+
+        .topic-image {
+            width: 100%;
+            min-height: 230px;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #17243a;
+            border: 1px solid #26364d;
+        }
+
+        .topic-content p {
+            color: #cbd5e1;
+            margin: 12px 0;
+        }
+
+        .topic-content ul {
+            padding-left: 22px;
+            margin: 12px 0;
+            color: #cbd5e1;
+        }
+
+        .topic-content li {
+            margin-bottom: 7px;
+        }
+
+        .question {
+            color: #7dd3fc !important;
+            font-weight: bold;
+            margin-top: 20px !important;
+        }
+
+        .closing {
+            margin-top: 45px;
+            padding: 65px 25px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at center, #12365b, transparent 70%),
+                #0e1728;
+            border: 1px solid #26364d;
+            border-radius: 14px;
+        }
+
+        .closing h2 {
+            color: #38bdf8;
+            font-size: clamp(25px, 4vw, 40px);
+            line-height: 1.3;
+            margin-bottom: 22px;
+        }
+
+        .closing p {
+            max-width: 750px;
+            margin: 12px auto;
+            color: #cbd5e1;
+        }
+
+        .closing .final-line {
+            color: #f8fafc;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 28px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            margin-top: 45px;
+            background: #0e1728;
+            border-top: 1px solid #26364d;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 760px) {
+            .tech-card {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .tech-card:nth-of-type(even) .topic-image {
+                order: 0;
+            }
+
+            .hero {
+                padding: 65px 6%;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .topic-image {
+                min-height: 190px;
+            }
+
+            .intro {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Apsy's Tech</h1>
+        <p>Gaming | Technology | PC Building</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gaming.html">Gaming</a>
+        <a href="components.html">Components</a>
+        <a href="configurator.html">Configurator</a>
+        <a href="tech.html">Tech</a>
+    </nav>
+
+    <section class="hero">
+        <div class="eyebrow">TECHNOLOGY • INNOVATION • TOMORROW</div>
+
+        <h2>
+            The Future Is Being<br>
+            <span>Built Right Now.</span>
+        </h2>
+
+        <p>
+            Technology is no longer just about machines, screens,
+            and processors. It is about creating possibilities
+            that once existed only in imagination. From artificial
+            intelligence that can generate ideas to robots that
+            can perform complex tasks, technology is transforming
+            how humans live, learn, work, and explore.
+        </p>
+
+        <p>
+            The next generation of innovation will be shaped by
+            people who don't just use technology — they understand
+            it, experiment with it, and build something new with it.
+        </p>
+
+        <div class="tagline">THE FUTURE DOESN'T SIMPLY ARRIVE. PEOPLE CREATE IT.</div>
+    </section>
+
+    <main>
+
+        <section class="intro">
+            <h3>⚡ Beyond the Ordinary</h3>
+
+            <p>
+                Welcome to the Tech section of Apsy's Tech — a place
+                to explore the ideas, inventions, and engineering
+                that are shaping our world.
+            </p>
+
+            <p>
+                From intelligent machines and powerful computers
+                to space exploration and advanced materials, discover
+                how science and imagination work together to create
+                new possibilities.
+            </p>
+        </section>
+
+        <!-- TOPIC 1 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/jeJLX_OyEE-84T8YNdWsBdyYef_fMdwT4XiQrv91vv0GS-CBULQzyf3BiBDuzUQSN-jjr9mhvjZQpxelcvGU_0LAvz37QB53U09Tn6w89QD49Q7cS4fq5zAxb-uJDrvj-GpttarypDhh348YgsVCviKsT3iD3M5K8aWez0YpIEM?purpose=inline"
+                alt="Close-up view of a glowing circuit board with blue neon lights"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    1. Artificial Intelligence — The Age of Intelligent Machines
+                </h2>
+
+                <div class="topic-label">
+                    AI • MACHINE LEARNING • AUTOMATION
+                </div>
+
+                <p>
+                    Imagine a computer that can recognize patterns,
+                    understand language, analyze information, and
+                    help solve difficult problems. That's part of
+                    what artificial intelligence makes possible.
+                </p>
+
+                <p><strong>AI is already being used in areas such as:</strong></p>
+
+                <ul>
+                    <li>Healthcare: assisting with medical-image analysis and research.</li>
+                    <li>Gaming: helping developers create smarter characters and new experiences.</li>
+                    <li>Engineering: supporting simulations, design, and problem-solving.</li>
+                    <li>Education: helping learners explore concepts and receive personalized explanations.</li>
+                    <li>Robotics: helping machines interpret information and perform tasks.</li>
+                </ul>
+
+                <p>
+                    But AI also brings important challenges, including
+                    privacy, misinformation, bias, and the need for
+                    human oversight.
+                </p>
+
+                <p class="question">
+                    THE BIG QUESTION:<br>
+                    Will the next generation simply use AI — or learn
+                    how to build, understand, and responsibly guide it?
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 2 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/cQWWSR5sAqSOazHmXlTAeeT9TiaAbES243pYpFxsEDQiCE7ViZuFQ955zo8rBjcNKNeds8TA8xcg12u60lsvGV1TtqzfBth028GKX2j1JrUt9pDY1y12d_7TXU0D1mh2oX14FGZ25rz_vsR-818Xw9h9p_w2xot0erSfr8Ag33M?purpose=inline"
+                alt="Graphics card product image"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    2. The PC Revolution — More Than Just a Computer
+                </h2>
+
+                <div class="topic-label">
+                    CPU • GPU • RAM • HARDWARE
+                </div>
+
+                <p>
+                    A modern PC is a collection of specialized
+                    components working together as one system.
+                </p>
+
+                <ul>
+                    <li>CPU: executes instructions and handles a wide range of computing tasks.</li>
+                    <li>GPU: processes graphics and performs many forms of parallel computation.</li>
+                    <li>RAM: provides fast, temporary working memory for active programs.</li>
+                    <li>SSD: stores games, applications, and files for long-term use.</li>
+                    <li>Motherboard: connects the components and allows them to communicate.</li>
+                    <li>Power supply: delivers electrical power to the system.</li>
+                </ul>
+
+                <p>
+                    A powerful computer isn't created by choosing
+                    one expensive component. It comes from balancing
+                    performance, compatibility, cooling, power,
+                    and budget.
+                </p>
+
+                <p class="question">
+                    PC BUILDING IS WHERE TECHNOLOGY BECOMES
+                    SOMETHING YOU CAN DESIGN WITH YOUR OWN HANDS.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 3 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/Ex0dJVEN0hS4u0AKWHYIwY5tZeXWKfcB2t7ILej0jUo5uaQNfPp6BA9oIa0oWOUnzGRaGvXhdlJzUWc1RpOwWycUObEdvH41kCPjXX3h4M4iAoXLRo3t6mKCqNN4vzeQnGNqj5UQPeQlvaGlvjr73eHeEwqOnLWAtCRPyqG-GIQ?purpose=inline"
+                alt="Humanoid robot actuator technology"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    3. Robotics — When Code Meets the Physical World
+                </h2>
+
+                <div class="topic-label">
+                    ROBOTICS • ENGINEERING • AUTOMATION
+                </div>
+
+                <p>
+                    Robots combine mechanical structures, electronics,
+                    sensors, control systems, and software to interact
+                    with the physical world.
+                </p>
+
+                <p>
+                    They can help assemble vehicles, inspect dangerous
+                    environments, support scientific research, and
+                    carry out repetitive industrial tasks.
+                </p>
+
+                <p><strong>Building a robot may involve several fields:</strong></p>
+
+                <ul>
+                    <li>Mechanical engineering for structures and movement.</li>
+                    <li>Electrical and electronics engineering for circuits and motors.</li>
+                    <li>Computer science for programming and intelligent behavior.</li>
+                    <li>Control engineering for accurate and stable movement.</li>
+                    <li>Materials science for strength, weight, and durability.</li>
+                </ul>
+
+                <p>
+                    Robotics shows how different branches of technology
+                    can work together to solve real-world problems.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 4 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/yGV-_K54omupl7zhAYb019qsKlr78EbYwhgXdcYC_QQrUrrdznXiifQGHJoYrUgsEMkcT4DBtIXAdKa1Smzq6xT2e7vNcqd5WVEsqECf3yUyesdw1tMNZ_aB7-A0GyL5yfALinpzAxMZqv6jR1r5JvMdd5b_v7vxyAKpTUDP7ZQ?purpose=inline"
+                alt="Planet and space imagery"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    4. Space Technology — Engineering Beyond Earth
+                </h2>
+
+                <div class="topic-label">
+                    SPACE • AEROSPACE • EXPLORATION
+                </div>
+
+                <p>
+                    Space technology allows humans to study the
+                    universe, observe Earth, communicate across
+                    continents, and send scientific instruments
+                    beyond our planet.
+                </p>
+
+                <p>
+                    Satellites support communication, navigation,
+                    weather observation, and environmental monitoring.
+                    Spacecraft and robotic explorers help scientists
+                    investigate planets, moons, and distant environments.
+                </p>
+
+                <p>
+                    Designing equipment for space requires engineers
+                    to consider extreme temperatures, radiation,
+                    limited energy, communication delays, and strict
+                    weight requirements.
+                </p>
+
+                <p class="question">
+                    Every space mission is a reminder that engineering
+                    can turn an ambitious question into a real experiment.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 5 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/vEUdlkf37KbJtd25ivdD7lkBUucNpqEo_pGmZeklU9hJFW1090P6sG5dH77LVuELpSzotvVH1cT1fSD5UFiwp5diFNGvozOtjXrw2MH2FElvENRWaNd6kVpfwGaQa1cV4r3dlCCschWXTA4cVH9jvDiAOPx5UVXPF1Yb-oX_9Ig?purpose=inline"
+                alt="Quantum computing processor"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    5. Quantum Computing — A Different Way to Compute
+                </h2>
+
+                <div class="topic-label">
+                    QUANTUM PHYSICS • COMPUTING • RESEARCH
+                </div>
+
+                <p>
+                    Traditional computers use bits, represented as
+                    0 or 1. Quantum computers use quantum bits, or
+                    qubits, which can exhibit quantum properties
+                    such as superposition and entanglement.
+                </p>
+
+                <p>
+                    Researchers are investigating whether quantum
+                    computers could help with certain specialized
+                    problems in chemistry, materials research,
+                    and mathematics.
+                </p>
+
+                <p>
+                    However, quantum computers are still an emerging
+                    technology. They are difficult to build and
+                    operate, and they are not simply faster
+                    replacements for ordinary PCs.
+                </p>
+
+                <p class="question">
+                    The exciting possibility is not that every
+                    computer will become quantum — but that entirely
+                    new kinds of problems may become easier to investigate.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 6 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/yC_CHjIJJw7HMFw87AET06PpcwAodTDXTk5H1j5SXdXNIJNNPq3LValJfAUdyKBB86uj2DvOPHydnrBBJlHbXyjCDLF0rJRT8u39hyoMaiSiVCeEzPYivIkoWiUanOOOO5RZHZHBllRCkJGMD-u_xxDCz4WMgBIItxfWXBrYQ-EDwpZtC-sYadeGQurBXYSb?purpose=inline"
+                alt="Advanced carbon fiber material"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    6. Advanced Materials — Designing the Matter of Tomorrow
+                </h2>
+
+                <div class="topic-label">
+                    MATERIALS SCIENCE • METALLURGY • ENGINEERING
+                </div>
+
+                <p>
+                    Technology depends not only on software and
+                    electronics, but also on the materials used
+                    to create physical objects.
+                </p>
+
+                <p>
+                    Engineers and scientists study materials such
+                    as advanced alloys, ceramics, composites, and
+                    semiconductor materials to improve strength,
+                    heat resistance, electrical behavior, and weight.
+                </p>
+
+                <p>
+                    These materials can contribute to lighter
+                    vehicles, more durable machines, efficient
+                    electronics, and equipment designed for
+                    demanding environments.
+                </p>
+
+                <p>
+                    Materials science connects chemistry, physics,
+                    manufacturing, and engineering — making it an
+                    important part of everything from computer
+                    chips to aircraft.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 7 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/0-90wkMZlj0Mzf5WFPHPFMxLqtzryWCZJ0LFo7sJB70X6mtv321HFvtp2kA5mBfPjrrU0KIinFJDCryS7hpB21Czx7Q3sW7a7JhnoZ_QG_QTRMYchphh5fW3_utPDy1Np96NjDBXU4GgM8K5Ujq0k6Q5U_IIbvXy0NG7WJm2t3k?purpose=inline"
+                alt="Energy technology"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    7. Clean Energy — Powering the Next Generation
+                </h2>
+
+                <div class="topic-label">
+                    ENERGY • SUSTAINABILITY • INNOVATION
+                </div>
+
+                <p>
+                    Every technological breakthrough needs energy.
+                    As societies develop new machines, transport
+                    systems, and computing infrastructure, engineers
+                    are working on ways to generate, store, and use
+                    energy more efficiently.
+                </p>
+
+                <p>
+                    Solar power, wind power, batteries, advanced
+                    power electronics, and improvements in electrical
+                    grids all play roles in this changing energy landscape.
+                </p>
+
+                <p>
+                    Future progress will depend on solving practical
+                    challenges such as energy storage, material
+                    availability, reliability, cost, and infrastructure.
+                </p>
+
+                <p class="question">
+                    The challenge is not just to create more technology
+                    — it is to make technology work more efficiently
+                    and sustainably.
+                </p>
+            </div>
+        </section>
+
+        <!-- TOPIC 8 -->
+
+        <section class="tech-card">
+            <img class="topic-image"
+                src="https://images.openai.com/static-rsc-4/J7_mkonrRaNOPRO4h9nbmMwP80CC6cb5DyaVwgbrKutVuAT1s0c2V_hDPsvi-eKQb0oRPYLrt8p9R51CZrI-Vt5csa0GN2rFDAN5uI__5jLaE4p-XXROXHt9um7Go_be8mYlr35UOTskWAvPREA3JG3WNYE5cdruNQlEFrR6CRc?purpose=inline"
+                alt="Cybersecurity and digital protection"
+                loading="lazy">
+
+            <div class="topic-content">
+                <h2 class="topic-heading">
+                    8. Cybersecurity — Protecting the Digital World
+                </h2>
+
+                <div class="topic-label">
+                    NETWORKS • DIGITAL SECURITY • PRIVACY
+                </div>
+
+                <p>
+                    As more of our lives move online, protecting
+                    computers, networks, and personal information
+                    becomes increasingly important.
+                </p>
+
+                <p>
+                    Cybersecurity involves defending digital systems
+                    against unauthorized access, data theft, malware,
+                    and other threats.
+                </p>
+
+                <p><strong>Some important areas include:</strong></p>
+
+                <ul>
+                    <li>Network security and secure communication.</li>
+                    <li>Encryption and protection of sensitive information.</li>
+                    <li>Secure software development.</li>
+                    <li>Digital identity and access management.</li>
+                    <li>Responsible vulnerability testing and system defense.</li>
+                </ul>
+
+                <p class="question">
+                    A connected world needs not only innovation,
+                    but also trust and security.
+                </p>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+
+        <section class="closing">
+            <div class="eyebrow">THE NEXT CHAPTER</div>
+
+            <h2>
+                THE NEXT CHAPTER<br>
+                BELONGS TO THE CREATORS.
+            </h2>
+
+            <p>
+                Technology is not magic. It is science, imagination,
+                experimentation, and engineering working together.
+            </p>
+
+            <p class="final-line">
+                Think. Learn. Build. Innovate.
+            </p>
+
+            <p>
+                Welcome to Apsy's Tech — where curiosity meets technology.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Apsy's Tech | Gaming, Technology and PC Building</p>
+    </footer>
+
+</body>
+</html>

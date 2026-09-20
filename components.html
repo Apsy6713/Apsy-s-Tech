@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Components | Apsy's Tech</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080d18;
+            color: #f1f5f9;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #101a2c;
+            padding: 25px 8%;
+            border-bottom: 1px solid #263750;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #b6c5d8;
+            margin-top: 5px;
+        }
+
+        nav {
+            background: #0c1423;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid #263750;
+        }
+
+        nav a {
+            color: #dbeafe;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            padding: 65px 8%;
+            text-align: center;
+            background: linear-gradient(135deg, #10213b, #080d18);
+        }
+
+        .hero h2 {
+            color: #38bdf8;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #cbd5e1;
+        }
+
+        .container {
+            width: 84%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .section-title {
+            color: #38bdf8;
+            font-size: 30px;
+            margin-bottom: 20px;
+            border-left: 5px solid #38bdf8;
+            padding-left: 14px;
+        }
+
+        .intro {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #111c2e;
+            border: 1px solid #263750;
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            color: #dbeafe;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #18324d;
+            color: #7dd3fc;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .note {
+            background: #10243a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 25px;
+            color: #dbeafe;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111c2e;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #30415b;
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #18324d;
+            color: #7dd3fc;
+        }
+
+        td {
+            color: #dbeafe;
+        }
+
+        .builder {
+            background: #111c2e;
+            border: 1px solid #263750;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .builder h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .builder p {
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+
+        .builder a {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 11px 18px;
+            border-radius: 6px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .builder a:hover {
+            background: #0369a1;
+        }
+
+        footer {
+            background: #101a2c;
+            border-top: 1px solid #263750;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            .hero h2 {
+                font-size: 29px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Apsy's Tech</h1>
+        <p>Gaming • Technology • PC Building</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gaming.html">Gaming</a>
+        <a href="#components">Components</a>
+        <a href="#compatibility">Compatibility</a>
+        <a href="#builder">PC Building</a>
+    </nav>
+
+    <section class="hero">
+        <h2>PC Components Explained</h2>
+        <p>
+            Welcome to the PC Components Section of Apsy's Tech!
+            Learn what each computer component does, how it affects
+            performance, and what you should understand before building
+            your own gaming PC.
+        </p>
+    </section>
+
+    <main>
+
+        <section class="container" id="components">
+            <h2 class="section-title">Explore PC Components</h2>
+
+            <p class="intro">
+                A computer is made of several components that work together.
+                Each part has a different job, and choosing compatible parts
+                is essential when building a PC.
+            </p>
+
+            <div class="component-grid">
+
+                <article class="card">
+                    <span class="tag">Processing</span>
+                    <h3>1. CPU — Processor</h3>
+                    <p>
+                        The Central Processing Unit (CPU) executes instructions
+                        and handles calculations, game logic, and many system
+                        tasks. It is often called the brain of a computer.
+                    </p>
+                    <ul>
+                        <li>Important features: cores, threads, clock speed.</li>
+                        <li>Examples: Intel Core and AMD Ryzen.</li>
+                        <li>Affects gaming, multitasking, and productivity.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Graphics</span>
+                    <h3>2. GPU — Graphics Card</h3>
+                    <p>
+                        The Graphics Processing Unit (GPU) processes graphics
+                        and helps render game worlds, visual effects, and
+                        high-resolution images.
+                    </p>
+                    <ul>
+                        <li>Important features: performance, VRAM, power use.</li>
+                        <li>Examples: NVIDIA GeForce RTX and AMD Radeon RX.</li>
+                        <li>Especially important for demanding games and 3D work.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Mainboard</span>
+                    <h3>3. Motherboard</h3>
+                    <p>
+                        The motherboard connects the CPU, RAM, storage,
+                        graphics card, and other devices so they can
+                        communicate.
+                    </p>
+                    <ul>
+                        <li>Check the CPU socket and chipset.</li>
+                        <li>Check RAM type and supported capacity.</li>
+                        <li>Check expansion slots and storage connections.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Memory</span>
+                    <h3>4. RAM</h3>
+                    <p>
+                        Random Access Memory (RAM) temporarily stores data
+                        that the computer is actively using. It is much
+                        faster to access than ordinary long-term storage.
+                    </p>
+                    <ul>
+                        <li>Capacity is measured in GB.</li>
+                        <li>Examples: DDR4 and DDR5.</li>
+                        <li>More memory can help with multitasking and demanding applications.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Storage</span>
+                    <h3>5. SSD and HDD</h3>
+                    <p>
+                        Storage keeps your operating system, applications,
+                        games, and files even when the computer is turned off.
+                    </p>
+                    <ul>
+                        <li>SSD: fast storage with no moving parts.</li>
+                        <li>HDD: mechanical storage, often useful for large files.</li>
+                        <li>NVMe SSDs use a high-speed interface over PCIe.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Power</span>
+                    <h3>6. PSU — Power Supply</h3>
+                    <p>
+                        The Power Supply Unit converts electricity from
+                        the wall into the power required by your PC components.
+                    </p>
+                    <ul>
+                        <li>Check total system power requirements.</li>
+                        <li>Check connector requirements.</li>
+                        <li>Choose a reliable unit with suitable capacity and protections.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Temperature</span>
+                    <h3>7. Cooling System</h3>
+                    <p>
+                        Cooling removes heat from components and helps them
+                        operate within their supported temperature limits.
+                    </p>
+                    <ul>
+                        <li>Air cooling uses heatsinks and fans.</li>
+                        <li>Liquid cooling moves heat through a liquid loop.</li>
+                        <li>Case airflow helps move hot air out of the PC.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Structure</span>
+                    <h3>8. PC Case</h3>
+                    <p>
+                        The case houses and protects your components.
+                        It also affects airflow, available space, and
+                        how easy the system is to assemble.
+                    </p>
+                    <ul>
+                        <li>Common sizes include ATX, Micro-ATX, and Mini-ITX cases.</li>
+                        <li>Check motherboard and graphics card clearance.</li>
+                        <li>Check cooler, radiator, and PSU space.</li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <div class="note">
+                <strong>Remember:</strong> A powerful GPU alone does not
+                guarantee a balanced gaming PC. CPU performance, memory,
+                cooling, storage, and component compatibility also matter.
+            </div>
+        </section>
+
+        <section class="container" id="compatibility">
+            <h2 class="section-title">PC Compatibility Guide</h2>
+
+            <p class="intro">
+                Before buying components, check that the parts support
+                one another. These are some of the important checks.
+            </p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Components</th>
+                            <th>What to Check</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CPU + Motherboard</td>
+                            <td>Socket, chipset support, and BIOS compatibility.</td>
+                        </tr>
+                        <tr>
+                            <td>Motherboard + RAM</td>
+                            <td>Supported DDR generation, capacity, and memory configuration.</td>
+                        </tr>
+                        <tr>
+                            <td>GPU + Case</td>
+                            <td>Graphics card length, thickness, and clearance.</td>
+                        </tr>
+                        <tr>
+                            <td>CPU + Cooler</td>
+                            <td>Socket mounting support and cooling capacity.</td>
+                        </tr>
+                        <tr>
+                            <td>PSU + Components</td>
+                            <td>Suitable wattage, quality, and required power connectors.</td>
+                        </tr>
+                        <tr>
+                            <td>Motherboard + Case</td>
+                            <td>Motherboard form factor and case support.</td>
+                        </tr>
+                        <tr>
+                            <td>Storage + Motherboard</td>
+                            <td>Available M.2 slots, supported drive types, and SATA connections.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note">
+                Compatibility details vary by model. Always check the
+                manufacturers' specifications before purchasing parts.
+            </div>
+        </section>
+
+        <section class="container" id="builder">
+            <h2 class="section-title">Ready to Build a PC?</h2>
+
+            <div class="builder">
+                <h3>Plan Your Gaming PC</h3>
+                <p>
+                    Start by deciding your budget, the games you want to play,
+                    your target resolution, and whether you also need the PC
+                    for school, programming, editing, or other work.
+                </p>
+                <p>
+                    Then select compatible parts and compare their
+                    specifications before making a purchase.
+                </p>
+
+                <a href="https://pcpartpicker.com/" target="_blank"
+                   rel="noopener noreferrer">
+                    Explore PCPartPicker
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Apsy's Tech | Gaming • Technology • PC Building</p>
+        <p>Learn technology. Understand hardware. Build your knowledge.</p>
+    </footer>
+
+</body>
+</html>
